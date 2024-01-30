@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:interneepk/features/auth/views/welcome/welcome_view.dart';
+import 'package:get/get.dart';
+import 'package:interneepk/common/routes/routes_handler.dart';
+import 'package:interneepk/features/auth/views/splash/splash_view.dart';
 import 'package:interneepk/utils/themes/theme.dart';
 
 class App extends StatelessWidget {
@@ -7,10 +9,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: NAppTheme.lightTheme,
-      home: const WelcomeView(),
+      themeMode: ThemeMode.light,
+      home: SplashView(),
+      getPages: RoutesHandler.routesHandler(),
     );
   }
 }

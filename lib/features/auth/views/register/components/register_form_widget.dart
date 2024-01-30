@@ -52,7 +52,7 @@ class RegisterFormWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return const LoginView();
+                  return LoginView();
                 },
               ),
             );
