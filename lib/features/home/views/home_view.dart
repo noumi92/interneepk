@@ -4,10 +4,13 @@ import 'package:interneepk/features/home/models/job.dart';
 import 'package:interneepk/features/home/viewmodels/home_view_model.dart';
 import 'package:interneepk/utils/drawer.dart';
 import 'package:interneepk/utils/helpers/helper_functions.dart';
+import 'package:interneepk/utils/responsive.dart';
 
 import '../../../common/components/exception_widget.dart';
 import '../../../data/api/responce/responce_status.dart';
+import 'components/desktop_home_widget.dart';
 import 'components/job_item_widget.dart';
+import 'components/mobile_home_widget.dart';
 
 class HomeView extends StatelessWidget {
   final homeVM = Get.put(HomeViewModel());
@@ -48,14 +51,17 @@ class HomeView extends StatelessWidget {
               homeVM.getJobs();
             });
           case ResponseStatus.completed:
-            return ListView.builder(
-                itemCount: homeVM.jobsList.length,
-                itemBuilder: (context, index) {
-                  return JobItemWidget(job: homeVM.jobsList[index],);
-                });
+            return Responsive(
+                mobile: MobileHomeWidget(homeVM: homeVM),
+                desktop: DesktopHomeWidget(homeVM: homeVM)
+            );
         }
       }));
   }
 }
+
+
+
+
 
 

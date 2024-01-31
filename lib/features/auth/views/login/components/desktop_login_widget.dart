@@ -16,7 +16,7 @@ class DesktopLoginWidget extends StatelessWidget {
             child: LoginImageWidget()
         ),
         Expanded(
-            child: Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
